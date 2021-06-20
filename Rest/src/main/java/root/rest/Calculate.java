@@ -6,9 +6,7 @@
 package root.rest;
 
 import java.math.BigDecimal;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -44,28 +42,28 @@ public class Calculate {
     @Path("sum")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSum(@PathParam("a") @QueryParam("a") int a, @PathParam("b") @QueryParam("b") int b) {
-        return (a + b) + "";
+    public String getSum(@PathParam("a") @QueryParam("a") BigDecimal a, @PathParam("b") @QueryParam("b") BigDecimal b) {
+        return a.add(b).toString();
     }
 
     @Path("subtract")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getSubtract(@PathParam("a") @QueryParam("a") int a, @PathParam("b") @QueryParam("b") int b) {
-        return (a - b) + "";
+    public String getSubtract(@PathParam("a") @QueryParam("a") BigDecimal a, @PathParam("b") @QueryParam("b") BigDecimal b) {
+        return a.subtract(b).toString();
     }
 
     @Path("multiply")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getMultiply(@PathParam("a") @QueryParam("a") int a, @PathParam("b") @QueryParam("b") int b) {
-        return (a * b) + "";
+    public String getMultiply(@PathParam("a") @QueryParam("a") BigDecimal a, @PathParam("b") @QueryParam("b") BigDecimal b) {
+        return a.multiply(b).toString();
     }
 
     @Path("divide")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getDevide(@PathParam("a") @QueryParam("a") int a, @PathParam("b") @QueryParam("b") int b) {
-        return (a / b) + "";
+    public String getDevide(@PathParam("a") @QueryParam("a") BigDecimal a, @PathParam("b") @QueryParam("b") BigDecimal b) {
+        return a.divide(b).toString();
     }
 }
